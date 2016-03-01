@@ -1,0 +1,43 @@
+<html>
+<body>
+<script src="http://cdn.pubnub.com/pubnub-3.13.0.min.js"></script>
+<script>
+    var pubnub = PUBNUB.init({
+        publish_key: 'pub-c-88967b36-134b-4893-ad5e-ae4890495804',
+        subscribe_key: 'sub-c-a67e1e3a-df2a-11e5-8905-02ee2ddab7fe',
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    })
+
+
+    // At the tone PubNub time will be...
+    pubnub.time(
+            function (time) {
+                console.log(time)
+            }
+    );
+
+    var publishMessage = function(action) {
+        pubnub.publish({
+            channel: 'my_channel',
+            message: action, //LOCK_DEVICE, PLAY_AUDIO, OPEN_URL
+            callback: function (m) {
+                console.log(m)
+            }
+        });
+    }
+
+</script>
+
+<center>
+<h1>School is hard</h1>
+<h2>Help your students stay focused. How?</h2>
+<button onclick="publishMessage('PLAY_AUDIO');">Run Audio</button>
+<button onclick="publishMessage('LOCK_DEVICE');">Lock PC</button>
+<button onclick="publishMessage('OPEN_URL');">Surprise with a video</button>
+<button onclick="publishMessage('SEND_EMAIL');">Send Email</button>
+</center>
+
+</body>
+</html>
