@@ -18,7 +18,7 @@
             }
     );
 
-    var publishMessage = function(action) {
+    var publishMessage = function (action) {
         pubnub.publish({
             channel: 'my_channel',
             message: action, //LOCK_DEVICE, PLAY_AUDIO, OPEN_URL
@@ -29,15 +29,20 @@
     }
 
 </script>
+<link rel="stylesheet" type="text/css" href="main.css">
 
-<center>
-<h1>School is hard</h1>
-<h2>Help your students stay focused. How?</h2>
-<button onclick="publishMessage('PLAY_AUDIO');">Run Audio</button>
-<button onclick="publishMessage('LOCK_DEVICE');">Lock PC</button>
-<button onclick="publishMessage('OPEN_URL');">Surprise with a video</button>
-<button onclick="publishMessage('SEND_EMAIL');">Send Email</button>
-</center>
-
+<div class="flex-container">
+    <div class="row">
+        <div class="flex-item">
+            <img src="remoteControl.jpg" alt="" usemap="#Map"/>
+            <map name="Map" id="Map">
+                <area alt="LOCK_DEVICE" title="LOCK_DEVICE" href="#" onclick="publishMessage('LOCK_DEVICE');" shape="poly" coords="21,112,20,175,80,175,84,115"/>
+                <area alt="OPEN_URL" title="OPEN_URL" href="#" onclick="publishMessage('OPEN_URL');" shape="poly" coords="99,113,98,178,153,174,157,114"/>
+                <area alt="PLAY_AUDIO" title="PLAY_AUDIO" href="#" onclick="publishMessage('PLAY_AUDIO');" shape="poly" coords="169,114,168,176,228,179,229,115"/>
+                <area alt="SEND_EMAIL" title="SEND_EMAIL" href="#" onclick="publishMessage('SEND_EMAIL');" shape="poly" coords="94,209,94,278,157,279,159,214"/>
+            </map>
+        </div>
+    </div>
+</div>
 </body>
 </html>
