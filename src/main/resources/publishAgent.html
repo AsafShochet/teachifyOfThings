@@ -1,5 +1,6 @@
 <html>
 <body>
+
 <script src="http://cdn.pubnub.com/pubnub-3.13.0.min.js"></script>
 <script>
     var pubnub = PUBNUB.init({
@@ -8,7 +9,7 @@
         error: function (error) {
             console.log('Error:', error);
         }
-    })
+    });
 
 
     // At the tone PubNub time will be...
@@ -19,6 +20,7 @@
     );
 
     var publishMessage = function (action) {
+      console.log(action);
         pubnub.publish({
             channel: 'my_channel',
             message: action, //LOCK_DEVICE, PLAY_AUDIO, OPEN_URL
@@ -30,20 +32,37 @@
 
 </script>
 <link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-<div class="flex-container">
-    <div class="row">
-        <div class="flex-item">
-            <img src="remoteControl.jpg" alt="" usemap="#Map"/>
-            <map name="Map" id="Map">
-                <area alt="LOCK_DEVICE" title="LOCK_DEVICE" href="#" onclick="publishMessage('LOCK_DEVICE');" shape="poly" coords="21,112,20,175,80,175,84,115"/>
-                <area alt="OPEN_URL" title="OPEN_URL" href="#" onclick="publishMessage('OPEN_URL');" shape="poly" coords="99,113,98,178,153,174,157,114"/>
-                <area alt="PLAY_AUDIO" title="PLAY_AUDIO" href="#" onclick="publishMessage('PLAY_AUDIO');" shape="poly" coords="169,114,168,176,228,179,229,115"/>
-                <area alt="SEND_EMAIL" title="SEND_EMAIL" href="#" onclick="publishMessage('SEND_EMAIL');" shape="poly" coords="94,209,94,278,157,279,159,214"/>
-            </map>
-        </div>
+<div>
+    <div class="header">
+      <span id="menu">&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      Class Controller
+    </div>
+    <div class="buttons-area">
+      <div class="flex-container top-row">
+        <div class="round-button" onclick="publishMessage('LOCK_DEVICE')" id="key" ></div>
+        <div class="round-button" onclick="publishMessage('OPEN_URL');" id="movie"></div>
+        <div class="round-button" onclick="publishMessage('PLAY_AUDIO');" id="sound"></div>
+      </div>
+      <div class="flex-container">
+        <div class="round-button" onclick="publishMessage('SEND_EMAIL');" id="mail"></div>
+      </div>
+    </div>
+    <div class="textArea">
+      <div class="textHeader">Explore</div>
+      <div class="flex-container">
+        <textarea rows="6" cols="40">Cool Presidents</textarea>
+
+      </div>
+
+      <div class="flex-container">
+        <div class="actions" id="wikipeida" onclick="publishMessage('OPEN_WIKIPEDIA');"></div>
+        <div class="actions" id="TED"></div>
+        <div class="actions" id="youtube"></div>
+      </div>
+
     </div>
 </div>
-<button onclick="publishMessage('OPEN_WIKIPEDIA');">random president</button>
 </body>
 </html>

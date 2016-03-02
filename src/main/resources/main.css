@@ -1,21 +1,115 @@
 html, body {
-    height: 100%;
+    height: 800px;
 }
 body {
     margin: 0;
+    width:100%;
+}
+.header {
+
+  background-color: #E91E63;
+  color: white;
+  width: 400px;
+  height: 50px;
+  padding: 4px;
+  padding-left: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  padding-top: 8px;
+}
+.buttons-area{
+  height: 300px;
+  background-color: #FFFFFF;
+}
+
+.top-row {
+  margin-top: 30px;
 }
 .flex-container {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width:400px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.row {
-    width: auto;
+.textArea{
+  width:400px;
+  height: 300px;
+  background-color: #B6B6B6;
+}
+.textHeader {
+  font-size: 20px;
+  padding-left: 64px;
+  padding-top: 30px;
+  line-height: 18px;
+  font-weight: bold;
+  padding-bottom: 4px;
+}
+
+.round-button {
+    float: left;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+
+    margin: 10px;
+    border: 1px solid #E91E63;
+    background-size: contain;
+    background-size: 60px 60px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#key{
+  background-image: url("key.png");
+}
+
+#movie{
+  background-image: url("movie.png");
+}
+
+#sound{
+  background-image: url("sound.png");
+}
+#mail{
+  background-size: 80px 60px;
+  background-image: url("mail.png");
+}
+
+.actions{
+  width:100px;
+  height: 50px;
+  background-size: contain;
+  background-size: 60px 60px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#wikipeida{
+  background-size: 127px 50px;
+  background-image: url("wikipeida.png");
+}
+
+#TED{
+  background-size: 100px 50px;
+  background-image: url("TED.png");
+}
+
+#youtube{
+  background-size: 100px 50px;
+  background-image: url("youtube.png");
+}
+
+#menu {
+  width:30px;
+  height: 30px;
+  background-size: contain;
+  padding-right:8px;
+  background-repeat: no-repeat;
+  background-position: center;
+  /*background-size: 100px 50px;*/
+  background-image: url("menu.png");
 }
